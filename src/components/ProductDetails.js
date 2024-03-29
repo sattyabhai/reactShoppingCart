@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
 
 
 function ProductDetails() {
@@ -58,7 +60,7 @@ function ProductDetails() {
                             <span className="card-title">${productDetails.price}</span>
                             <p className="card-text">{productDetails.description}</p>
                             <button className="add-to-cart" onClick={addToCart}>{cartButtonText}</button>
-                            {cartButtonStatus && <a href="/">Checkout</a>}
+                            {cartButtonStatus && <Link to="/checkout">Checkout</Link>}
                         </div>
                         </div>
                 </div>
