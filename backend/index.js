@@ -3,15 +3,17 @@ const stripeSecretKey = process.env.STRIPE_SECRET_KEY; // Stripe secret key
 const stripe = require('stripe')(stripeSecretKey);
 const stripeSetupRouter = require('./routes/stripesetup');
 const app = express();
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3005;
 const cors = require('cors');
 const corsOptions = {
   origin: 'http://localhost:3001'
 };
-
+const bodyParser = require('body-parser');
 // Middleware
 app.use(express.json());
 app.use(cors(corsOptions));
+app.use(bodyParser.json());
+
 
 // Route to create a payment intent
 app.use('/api/create-payment-intent', stripeSetupRouter);
